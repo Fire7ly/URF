@@ -24,7 +24,7 @@ echo "%choice%" is not valid, try again
 echo.
 goto start
 :RUI1
-mkdir \tool\R1
+mkdir .\tool\R1
 echo Please Put Your RUI 1 RECOVERY.img And Vbmeta.img Into RUI1 Folder.
 Start .\tool\R1
 pause
@@ -32,7 +32,7 @@ Start /max .\tool\RUI1.bat
 goto start
 
 :RUI2
-mkdir \tool\R2
+mkdir .\tool\R2
 echo Please Put Your RUI 2 RECOVERY.img And Vbmeta.img Into RUI2 Folder.
 Start .\tool\R2
 pause
