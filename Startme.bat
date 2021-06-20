@@ -23,21 +23,34 @@ if '%choice%'=='3' goto Exit
 echo "%choice%" is not valid, try again
 echo.
 goto start
+
 :RUI1
+if exist .\tool\R1 ( 
+echo Folder Found No Need To Open Folder.
+timeout /t 5 
+Start /max .\tool\RUI1.bat
+goto Exit 
+ ) else ( 
 mkdir .\tool\R1
 echo Please Put Your RUI 1 RECOVERY.img And Vbmeta.img Into RUI1 Folder.
 Start .\tool\R1
 pause
 Start /max .\tool\RUI1.bat
-goto start
+goto Exit )
 
 :RUI2
+if exist .\tool\R2 ( 
+echo Folder Found No Need To Open Folder.
+timeout /t 5 
+Start /max .\tool\RUI2.bat
+goto Exit 
+ ) else ( 
 mkdir .\tool\R2
 echo Please Put Your RUI 2 RECOVERY.img And Vbmeta.img Into RUI2 Folder.
 Start .\tool\R2
 pause
 Start /max .\tool\RUI2.bat
-goto Start
+goto Exit )
 
 :Exit
 echo This Command Prompt Will Terminate In 2 Seconds.
