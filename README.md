@@ -15,6 +15,14 @@ A Windows Batch File Which Flash Any Recovery In Realme Devices.
 
 5. It Will Auto Reboot You Into Recovery.
 
+**Changelog:-**
+
+1. Fix Annoying Windows Explorer Popup, Now it Will Ask Only One Time In The Starting For File, If Folder Present It Will Skip Asking For Files. Make Sure Dont Delete Folder.
+
+2. Set 5 Second Time To Run Main Process.
+
+3. Parent CMD Auto Exit After Run Recovery CMD.
+
 **Note**
 
 1. If you Flashing Recovery On Stock RUI, Magisk Flash Mindotry In order to Make Pbrp Permanent.
