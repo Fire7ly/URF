@@ -5,15 +5,15 @@ A Windows Batch File Which Flash Any Recovery In Realme Devices.
 
 **Usages:-**
 
-1. Run Startme.bat 
+1. Connect Your Device With _USB debugging And MTP Enabled_.
 
-2. Select Your Realme UI Version.
+2. Run startme.bat 
 
-3. It Will Popup A Explorer Window Put Your recovery.img And vbmeta.img There.
+3. ~~ Select Your Realme UI Version.~~
 
-4. Come Back To CMD Window And Press Enter It will Flash Your Recovery.
+4. It Will Popup A Explorer Window Put Your recovery.img And vbmeta.img There.
 
-5. It Will Auto Reboot You Into Recovery.
+5. Come Back To CMD Window And Press Enter It will Flash & Boot Device In Recovery.
 
 **Changelog:-**
 
@@ -22,6 +22,12 @@ A Windows Batch File Which Flash Any Recovery In Realme Devices.
 2. Set 5 Second Time To Run Main Process.
 
 3. Parent CMD Auto Exit After Run Recovery CMD.
+
+4. Added Auto Flash Recovery According To SDK..
+
+5. Detect SDK AND Android Version Now!
+
+5. Try To Add Time 😊
 
 **Note**
 

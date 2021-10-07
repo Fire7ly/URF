@@ -1,41 +1,59 @@
 @echo off 
 cls
-title URF V01 BY @fire7ly
+@title URF V01 BY Fire7ly
+for /F "delims=" %%i in ('date /t') do set mydate=%%i
+for /F "delims=" %%i in ('time /t') do set mytime=%%i
 color 3
 @echo ======================================================
-@echo  				MADE BY fire7ly
+@echo    	         MADE BY fire7ly
 @echo   UNIVERSAL RECOVERY FlASHER FOR REALME DEVICES
+@echo     Current time is %mydate%: %mytime%
 @echo ======================================================
 :start
-timeout /t 1 > nul
-echo 1. RUI 1
-echo 2. RUI 2
-echo 3. Exit
-@echo =============================================
-echo Choose Your Realme UI version. 
-timeout /t 2 > nul
-set choice=
-set /p choice=Enter Your Choice = 
-if not '%choice%'=='' set choice=%choice:~0,1%
-if '%choice%'=='1' goto RUI1
-if '%choice%'=='2' goto RUI2
-if '%choice%'=='3' goto Exit
-echo "%choice%" is not valid, try again
+tool\adb devices 
+tool\adb wait-for-usb-device
+tool\adb root 
 echo.
-goto start
+for /F "delims=" %%a in ('tool\adb.exe shell getprop ro.product.odm.model') do set DEVICE=%%a
+for /F "delims=" %%a in ('tool\adb.exe shell getprop ro.build.product') do set PRODUCT=%%a
+for /F "delims=" %%a in ('tool\adb.exe shell getprop ro.build.display.ota') do set ID=%%a
+for /F "delims=" %%a in ('tool\adb.exe shell getprop ro.oppo.market.name') do set NAME=%%a
+for /F "delims=" %%a in ('tool\adb.exe shell getprop ro.build.version.sdk') do set SDK=%%a
+echo.
+echo device checked.
+@echo.[91m
+echo Hostname: %NAME%
+echo Detected: %DEVICE% (%PRODUCT%)
+echo Firmware: %ID%
+echo SDK: %SDK%[0m
+rem script starts.
+echo.
 
+if %SDK%==29 (
+    echo "Your device is Running Realme Ui 1 And sdk is 29.."
+    echo "Flashing PBRP For Rui 1.."
+    goto RUI1    
+)
+
+if %SDK%==30 (
+    echo "Your device is Running Realme Ui 2 And sdk is 30.."
+    echo "Flashing PBRP For Rui 2.."
+    goto RUI2
+)
+color 3
 :RUI1
-if exist .\tool\R1 ( 
+if exist \tool\R1 ( 
 echo Folder Found No Need To Open Folder.
 timeout /t 5 
 Start /max .\tool\RUI1.bat
 goto Exit 
  ) else ( 
 mkdir .\tool\R1
-echo Please Put Your RUI 1 RECOVERY.img And Vbmeta.img Into RUI1 Folder.
+echo. > .\tool\R1\"recovery.img+vbmeta.img_Here!"
+echo Please Put Your RUI 1 recovery.img And Vbmeta.img Into RUI1 Folder.
 Start .\tool\R1
 pause
-Start /max .\tool\RUI1.bat
+#Start /max .\tool\RUI1.bat
 goto Exit )
 
 :RUI2
@@ -46,7 +64,8 @@ Start /max .\tool\RUI2.bat
 goto Exit 
  ) else ( 
 mkdir .\tool\R2
-echo Please Put Your RUI 2 RECOVERY.img And Vbmeta.img Into RUI2 Folder.
+echo. > .\tool\R2\"recovery.img+vbmeta.img_Here!"
+echo Please Put Your RUI 2 recovery.img And Vbmeta.img Into RUI2 Folder.
 Start .\tool\R2
 pause
 Start /max .\tool\RUI2.bat
