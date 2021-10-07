@@ -9,7 +9,7 @@ A Windows Batch File Which Flash Any Recovery In Realme Devices.
 
 2. Run startme.bat 
 
-3. ~~ Select Your Realme UI Version.~~
+3. ~~Select Your Realme UI Version.~~
 
 4. It Will Popup A Explorer Window Put Your recovery.img And vbmeta.img There.
 
