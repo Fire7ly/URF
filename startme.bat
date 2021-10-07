@@ -53,7 +53,7 @@ echo. > .\tool\R1\"recovery.img+vbmeta.img_Here!"
 echo Please Put Your RUI 1 recovery.img And Vbmeta.img Into RUI1 Folder.
 Start .\tool\R1
 pause
-#Start /max .\tool\RUI1.bat
+Start /max .\tool\RUI1.bat
 goto Exit )
 
 :RUI2
